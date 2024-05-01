@@ -20,7 +20,6 @@ header {
   color: #fff;
   height: 80px;
   width: 100%;
-  position: fixed;
 }
 
 h1 {
@@ -80,17 +79,4 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 14px;
-}
-/*響應式設計語法*/
-@media screen and (max-width: 768px) {
-    header ul {
-        display: none;
-    }
-    header h1 {
-      left: 50%;
-      transform: translate(-50%);
-    }
-    h2 {
-      font-size: 40px;
-    }
 }
