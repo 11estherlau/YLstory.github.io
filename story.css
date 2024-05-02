@@ -86,7 +86,6 @@
   }
   .button {
     margin: 0;
-    margin-top: 20px;
     padding: 10px;
     box-sizing: content-box;
     box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
@@ -95,6 +94,10 @@
     text-decoration: none;
     justify-content: space-between;
   }
+
+  .text-class {
+    padding-bottom: 20px; 
+}
   
   .button:hover {
     background-color: #f0fff0;
