@@ -74,7 +74,7 @@ header a:hover {
 
 header ul {
   position: absolute;
-  min-width: 160px;
+  right: 1vw;
   top: 0;
   line-height: 80px;
 }
