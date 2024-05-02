@@ -87,6 +87,7 @@
   .button {
     margin: 0;
     padding: 10px;
+    padding-bottom: 40px;
     box-sizing: content-box;
     box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
     border-radius: 6px;
@@ -94,10 +95,6 @@
     text-decoration: none;
     justify-content: space-between;
   }
-
-  .text-class {
-    padding-bottom: 40px; 
-}
   
   .button:hover {
     background-color: #f0fff0;
