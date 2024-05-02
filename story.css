@@ -7,14 +7,22 @@
     background-color: #f2f2f2;
   }
   
-  /* 全局樣式 */
+  /* global mode */
   body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     color: #333;
     line-height: 1.6;
   }
-  
+
+  .fixed-width {
+    width: 500px; /* fixed-width is 500 pixels */
+    margin: 0 auto; /* horizontal centering */
+    padding: 20px;
+    border: 1px solid #ccc;
+    overflow-wrap: break-word; /* Make sure the text does not extend beyond the container */
+}
+
   header {
     background-color: #333;
     color: #fff;
