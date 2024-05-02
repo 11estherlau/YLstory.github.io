@@ -85,8 +85,8 @@
     text-align: center;
   }
   .button {
-    float: center;
-    padding: 10px;
+    margin: 0;
+    padding: 20px;
     box-sizing: content-box;
     box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
     border-radius: 6px;
