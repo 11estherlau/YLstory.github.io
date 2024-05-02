@@ -101,6 +101,7 @@
     box-shadow: 0 5px;
     transition: 0.5s;
   }
+  
 html::-webkit-scrollbar {
     width: 10px;
     height: 1px;
