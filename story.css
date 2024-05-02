@@ -92,6 +92,7 @@
     border-radius: 6px;
     color: #333;
     text-decoration: none;
+    justify-content: space-between;
   }
   
   .button:hover {
