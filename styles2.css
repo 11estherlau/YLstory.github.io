@@ -74,14 +74,9 @@ header a:hover {
 
 header ul {
   position: absolute;
-  right: 1vw;
+  margin-right: 10px;
   top: 0;
   line-height: 80px;
-}
-
-header li {
-  display: inline;
-  margin-right: 5%;
 }
 
 main {
