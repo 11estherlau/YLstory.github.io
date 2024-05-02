@@ -72,7 +72,7 @@ header a:hover {
   text-decoration: underline;
 }
 
-header ul {
+button {
   position: absolute;
   margin-right: 10px;
   top: 0;
