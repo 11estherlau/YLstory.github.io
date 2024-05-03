@@ -115,7 +115,7 @@ html::-webkit-scrollbar {
   
   html::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: skyblue;
+    background-color: rgb(142, 195, 216);
     background-image: -webkit-linear-gradient(
       45deg,
       rgba(255, 255, 255, 0.2) 25%,
