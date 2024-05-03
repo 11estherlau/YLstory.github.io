@@ -20,3 +20,4 @@ function loadTextFile(file, div_id) {
 
 // Load the text file and display it in the div
 loadTextFile("story01.1.txt", "story01.1_content");
+loadTextFile("story01.2.txt", "story01.2_content");
