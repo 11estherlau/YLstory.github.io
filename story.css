@@ -63,8 +63,9 @@
     background-color: #f0fff0;
   }
   
-  header h2 {
+  h2 {
     text-align: center;
+    margin-top: 20px;
   }
   
   p {
