@@ -50,6 +50,20 @@
     margin-right: 4vw;
   }
 
+  @media (max-width: 600px) {
+    .button {
+        padding: 8px;
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 400px) {
+  .button {
+      padding: 5px;
+      margin: 0 2px;
+  }
+}
+
   main {
     padding: 77.7px;
   }
