@@ -106,17 +106,17 @@ main {
 }
 
 @media (max-width: 600px) {
-  * {
-      padding: 8px;
-      margin: 0 5px;
+header {
+          padding: 8px;
+          margin: 0 5px;
+      }
   }
-}
-
+  
 @media (max-width: 400px) {
-* {
-    padding: 5px;
-    margin: 0 2px;
-}
+header {
+  padding: 5px;
+  margin: 0 2px;
+  }
 }
 
 h2 {
