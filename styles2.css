@@ -14,6 +14,17 @@ body {
   line-height: 1.6;
 }
 
+.fixed-width {
+  width: 500px;
+  /* fixed-width is 500 pixels */
+  margin: 0 auto;
+  /* horizontal centering */
+  padding: 20px;
+  border: 1px solid #ccc;
+  overflow-wrap: break-word;
+  /* Make sure the text does not extend beyond the container */
+}
+
 header h1 {
   position: absolute;
   left:120px;
