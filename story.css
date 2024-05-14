@@ -115,14 +115,14 @@
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 200px) {
     .container {
       display: flex;
       flex-wrap: wrap;
     }
     
     .item {
-      flex: 1 1 400px; /* 每個項目至少200px寬，超過空間時自動適應 */
+      flex: 1 1 200px; /* 每個項目至少200px寬，超過空間時自動適應 */
     }
   }
   
