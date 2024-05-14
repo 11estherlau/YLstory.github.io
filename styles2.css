@@ -3,10 +3,13 @@
   padding: 0;
 }
 
-header, section, footer {
+header,
+section,
+footer {
   background-color: #f2f2f2;
 }
 
+/* global mode */
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -25,13 +28,6 @@ body {
   /* Make sure the text does not extend beyond the container */
 }
 
-header h1 {
-  position: absolute;
-  left:120px;
-  top: 0;
-  line-height: 80px;
-}
-
 header {
   background-color: #333;
   color: #fff;
@@ -39,41 +35,11 @@ header {
   width: 100%;
 }
 
-header a {
-  color: #fff;
-  text-decoration: none;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-header ul {
+header h1 {
   position: absolute;
-  right: 1vw;
+  left: 120px;
   top: 0;
   line-height: 80px;
-}
-
-header li {
-  display: inline;
-  margin-right: 10px;
-}
-
-main {
-  padding: 77.7px;
-}
-
-.button{
-  margin: 0;
-  padding: 10px;
-  margin-bottom: 30px;
-  box-sizing: content-box;
-  box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
-  border-radius: 6px;
-  color: #333;
-  text-decoration: none;
-  justify-content: space-between;
 }
 
 .dropbtn {
@@ -128,17 +94,41 @@ header {
   }
 }
 
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+header ul {
+  position: absolute;
+  right: 1vw;
+  top: 0;
+  line-height: 80px;
+}
+
+header li {
+  display: inline;
+  margin-right: 4vw;
+}
+
+#main {
+  padding: 2rem;
+  background-color: #f0fff0;
+}
+
 h2 {
   text-align: left;
   margin-top: 30px;
 }
 
-section {
-  margin-bottom: 20px;
-}
-
 p {
-  font-size: 18px;
+  margin-bottom: 17px;
+  line-height: 1.5;
+  text-indent: 2em;
 }
 
 ul {
@@ -146,12 +136,61 @@ ul {
   margin-left: 20px;
 }
 
+
 footer {
-  background-color: #333;
-  color: #fff;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
+  background-color: #f0fff0;
+  padding: 10px;
+  text-align: center;
+}
+
+.button {
+  margin: 0;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-sizing: content-box;
+  box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.button:hover {
+  background-color: #f0fff0;
+  box-shadow: 0 5px;
+  transition: 0.5s;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+
+html::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #ededed;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(142, 195, 216);
+  background-image: -webkit-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.2) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      transparent 75%,
+      transparent);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(100, 100, 100);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: rgb(68, 68, 68);
+  border-radius: 10px;
 }
