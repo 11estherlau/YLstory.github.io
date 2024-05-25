@@ -23,7 +23,7 @@ header {
   align-items: center;
 }
 
-header h1 {
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;
