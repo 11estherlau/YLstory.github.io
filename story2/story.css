@@ -85,17 +85,14 @@ footer a.button {
 }
 
 @media (max-width: 600px) {
-header {
   padding: 8px;
   margin: 0 5px;
-  }
 }
 
 @media (max-width: 400px) {
-header {
-  padding: 5px;
+  max-width: 100%;
+  padding: 20px;
   margin: 0 2px;
-  }
 }
 
 .button:hover {
