@@ -50,10 +50,11 @@ nav ul li a {
 
 #main {
   background-color: #f0fff0;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  line-height: 3.0;
+  margin-bottom: 2rem;
+  line-height: 4.0;
 }
 
 footer {
