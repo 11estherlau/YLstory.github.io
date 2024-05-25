@@ -56,6 +56,10 @@ nav ul li a {
   line-height: 3.0;
 }
 
+#main p {
+  line-height: 3.0;
+}
+
 footer {
   background-color: #333;
   color: #fff;
