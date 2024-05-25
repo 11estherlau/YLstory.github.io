@@ -53,24 +53,34 @@ nav ul li a {
   line-height: 1.6; /* Lower the row height to reduce the possibility of overlap */
 }
 
+
 footer {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
-}
-
-.button {
+  }
+  
+  footer a.button {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #333;
+  border-radius: 5px;
+  }
+  
+  .button {
   margin: 0;
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
+  box-sizing: content-box;
+  box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
+  border-radius: 6px;
   color: #333;
   text-decoration: none;
-  display: inline-block; /* Modified to inline-block to avoid occupying the entire line */
-  border: none; /* Remove borders */
-  background-color: transparent; /* Transparent background, no need to use box-shadow anymore */
-}
+  justify-content: space-between;
+  }
 
 @media (max-width: 400px) {
   * {
