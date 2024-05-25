@@ -25,7 +25,9 @@ header {
 }
 
 header h1 {
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
 }
 
