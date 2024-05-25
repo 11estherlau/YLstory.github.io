@@ -10,6 +10,7 @@ header, section, footer {
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
 }
@@ -24,6 +25,7 @@ header {
 }
 
 header h1 {
+  position: absolute;
   font-size: 24px;
 }
 
@@ -46,6 +48,7 @@ nav ul li a {
 }
 
 #main {
+  background-color: #f0fff0;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
