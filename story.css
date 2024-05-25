@@ -3,92 +3,73 @@
   padding: 0;
 }
 
-header,
-section,
-footer {
+header, section, footer {
   background-color: #f2f2f2;
 }
 
-/* global mode */
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
-  color: #333;
-  line-height: 1.6;
-}
-
-.fixed-width {
-  width: 500px;
-  /* fixed-width is 500 pixels */
-  margin: 0 auto;
-  /* horizontal centering */
-  padding: 20px;
-  border: 1px solid #ccc;
-  overflow-wrap: break-word;
-  /* Make sure the text does not extend beyond the container */
+  margin: 0;
+  padding: 0;
 }
 
 header {
   background-color: #333;
   color: #fff;
-  height: 80px;
-  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
-  position: absolute;
-  left: 120px;
-  top: 0;
-  line-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
 
-header a {
+nav ul {
+  list-style: disc;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
   color: #fff;
   text-decoration: none;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-header ul {
-  position: absolute;
-  right: 1vw;
-  top: 0;
-  line-height: 80px;
-}
-
-header li {
-  display: inline;
-  margin-right: 4vw;
+  padding: 5px 10px;
+  background-color: #333;
 }
 
 #main {
-  padding: 2rem;
   background-color: #f0fff0;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 3.5;
+  line-break: normal;
 }
-
-h2 {
-  text-align: left;
-  margin-top: 30px;
-}
-
-p {
-  margin-bottom: 17px;
-  line-height: 1.5;
-  text-indent: 2em;
-}
-
-ul {
-  list-style-type: disc;
-  margin-left: 20px;
-}
-
 
 footer {
-  background-color: #f0fff0;
-  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
   text-align: center;
+}
+
+footer a.button {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #333;
+  border-radius: 5px;
 }
 
 .button {
@@ -104,32 +85,24 @@ footer {
   justify-content: space-between;
 }
 
+@media (max-width: 600px) {
+header {
+  padding: 8px;
+  margin: 0 5px;
+  }
+}
+
+@media (max-width: 400px) {
+header {
+  padding: 5px;
+  margin: 0 2px;
+  }
+}
+
 .button:hover {
   background-color: #f0fff0;
   box-shadow: 0 5px;
   transition: 0.5s;
-}
-
-@media (max-width: 600px) {
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .item {
-    flex: 1 1 600px;
-  }
-}
-
-@media (max-width: 200px) {
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .item {
-    flex: 1 1 200px;
-  }
 }
 
 html::-webkit-scrollbar {
@@ -146,13 +119,15 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(142, 195, 216);
-  background-image: -webkit-linear-gradient(45deg,
-      rgba(255, 255, 255, 0.2) 25%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.2) 75%,
-      transparent 75%,
-      transparent);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+    );
 }
 
 html::-webkit-scrollbar-thumb:hover {
