@@ -4,31 +4,35 @@
   box-sizing: border-box; /* Add this line to fix box model calculation issue */
 }
 
-body {
-  font-family: Arial, sans-serif;
+header, section, footer {
   background-color: #f2f2f2;
 }
 
-header, section, footer {
+body {
+  font-family: Arial, sans-serif;
   background-color: #f2f2f2;
-  padding: 20px; /* Remove margin attribute */
+  margin: 0;
+  padding: 0;
 }
 
 header {
   background-color: #333;
   color: #fff;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 34px;
-  margin: 0; /* Remove display: flex and align-items properties */
 }
 
 nav ul {
-  list-style: none; /* Change to none instead of disc */
+  list-style: disc;
   margin: 0;
   padding: 0;
 }
@@ -50,26 +54,25 @@ nav ul li a {
   max-width: 1000px;
   margin: 0 auto;
   padding: 30px;
-  line-height: 1.6; /* Lower the row height to reduce the possibility of overlap */
+  line-height: 3.0;
 }
-
 
 footer {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
-  }
-  
-  footer a.button {
+}
+
+footer a.button {
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
   background-color: #333;
   border-radius: 5px;
-  }
-  
-  .button {
+}
+
+.button {
   margin: 0;
   padding: 10px;
   margin-top: 30px;
@@ -80,13 +83,13 @@ footer {
   color: #333;
   text-decoration: none;
   justify-content: space-between;
-  }
+}
 
 @media (max-width: 400px) {
   * {
     max-width: none; /* Remove max-width attribute */
     padding: 0; /* Remove padding attribute */
-    margin: 0; /* Remove margin attribute*/
+    margin: 0; /* Remove margin attribute */
   }
 }
 
