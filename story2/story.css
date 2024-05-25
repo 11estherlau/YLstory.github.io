@@ -13,14 +13,12 @@
     background-color: #f2f2f2;
     color: #333;
     line-height: 1.6;
-    transform: scale(0.8);
-    transform-origin: 0 0;
   }
 
   .fixed-width {
     width: 500px; /* fixed-width is 500 pixels */
     margin: 0 auto; /* horizontal centering */
-    padding: 20px;
+    padding: 60px;
     border: 1px solid #ccc;
     overflow-wrap: break-word; /* Make sure the text does not extend beyond the container */
 }
