@@ -12,8 +12,6 @@ body {
   background-color: #f2f2f2;
   color: #333;
   line-height: 1.6;
-  transform: scale(0.8);
-  transform-origin: 0 0;
 }
 
 header h1 {
