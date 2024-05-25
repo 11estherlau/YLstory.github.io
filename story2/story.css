@@ -53,8 +53,8 @@ nav ul li a {
   max-width: 900px;
   margin: 0 auto;
   padding: 30px;
-  margin-bottom: 4rem;
-  line-height: 3.0;
+  margin-inline: 2.5px;
+  line-height: 3.0px;
 }
 
 footer {
