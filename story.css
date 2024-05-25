@@ -23,11 +23,11 @@ header {
   align-items: center;
 }
 
-header h1 {
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 34px;
 }
 
 nav ul {
@@ -52,9 +52,8 @@ nav ul li a {
   background-color: #f0fff0;
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  margin-bottom: 2rem;
-  line-height: 4.0;
+  padding: 30px;
+  line-height: 3.0;
 }
 
 footer {
