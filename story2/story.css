@@ -56,7 +56,8 @@ nav ul li a {
 }
 
 #main p {
-  margin-bottom: 3.0rem;
+  margin-bottom: 1.5rem;
+  line-height: 3.0;
 }
 
 footer {
