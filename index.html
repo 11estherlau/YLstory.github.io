@@ -6,12 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>淵翎小說網站</title>
   <style>
-    @media (max-width:600px){
-      body {
-        font-size: 14px; /* Adjust font size */
-        line-height: 1.4; /* Adjust line height */
-      }
+  /* Add your custom styles here */
+  /* ... */
+  
+  /* Style for the three dots */
+  @media (max-width: 700px) {
+    .toggle-nav {
+      display: block;
     }
+  
+    nav ul {
+      display: none;
+    }
+    .toggle-nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 24px;
+    }
+  }
   </style>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,6 +34,7 @@
 <body>
   <header>
     <h1>YL小說</h1>
+    <span class="toggle-nav">&#8942;</span>
     <nav>
       <ul>
         <li><a href="Introduction.html">穿書竟成了下面那個</a></li>
