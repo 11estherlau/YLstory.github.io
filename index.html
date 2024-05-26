@@ -6,98 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>淵翎小說網站</title>
   <style>
-    /* Media query for mobile devices */
-    @media (min-width: 600px) {
-      nav ul {
-        display: flex;
-        position: static;
-        background-color: transparent;
-      }
-      
-      nav ul li {
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 0;
+    @media (max-width:600px){
+      body {
+        font-size: 14px; /* Adjust font size */
+        line-height: 1.4; /* Adjust line height */
       }
     }
-
-    @media (max-width: 700px) {
-      .toggle-nav {
-        display: block;
-    }
-  
-      nav ul {
-      display: none;
-      }
-    }
-
- /* Add your custom styles here */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      position: relative;
-    }
-
-    /* Add your custom styles here */
-    /* ... */
-  
-    /* Style for the three dots */
-    header .toggle-nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 24px;
-    }
-    
-    header h1 {
-      font-size: 24px;
-    }
-    
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #333;
-    }
-    
-    nav ul li {
-      display: block;
-      margin-bottom: 10px;
-    }
-    
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 5px 10px;
-      background-color: #333;
-    }
-
-    main {
-      background-color: #fff;
-      margin: 0 auto;
-      padding: 30px;
-      line-height: 2.0;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }   
   </style>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -105,20 +19,14 @@
 <body>
   <header>
     <h1>YL小說</h1>
-    <div id="right">
-      <div class="tools_button" id="console_b" title="設置"></div>
-      <div class="tools_button" id="dir_b" title="目錄"></div>
-      <span class="toggle-nav">&#8942;
-        <nav>
-          <ul>
-            <li><a href="Introduction.html">穿書竟成了下面那個</a></li>
-            <li><a href="/story2/Introduction.html">你這個假太監！</a></li>
-            <li><a href="English.html">English</a></li>
-            <li><a href="Simplified Chinese.html">简体中文</a></li>
-          </ul>
-        </nav>
-      </span>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="Introduction.html">穿書竟成了下面那個</a></li>
+        <li><a href="/story2/Introduction.html">你這個假太監！</a></li>
+        <li><a href="English.html">English</a></li>
+        <li><a href="Simplified Chinese.html">简体中文</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <section>
@@ -146,11 +54,6 @@
   <footer>
     <p>版權聲明 &copy; 2023 YL小說</p>
   </footer>
-  <script>
-    document.querySelector('.toggle-nav').addEventListener('click', function() {
-      document.querySelector('nav ul').classList.toggle('collapsed');
-    });
-  </script>
 </body>
 
 </html>
