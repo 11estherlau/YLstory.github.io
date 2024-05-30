@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+  var navMenu = document.querySelector('nav ul');
+
   document.querySelector('.toggle-nav').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('collapsed');
+    navMenu.classList.toggle('collapsed');
   });
 });
