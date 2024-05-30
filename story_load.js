@@ -16,9 +16,6 @@ function loadTextFile(file, div_id) {
     .catch(function(error) {
       console.log('Error:', error);
     });
-    document.querySelector('.toggle-nav').addEventListener('click', function() {
-      document.querySelector('nav ul').classList.toggle('collapsed');
-    });
 }
 
 // Load the text file and display it in the div
