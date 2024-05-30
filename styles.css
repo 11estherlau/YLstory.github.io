@@ -110,3 +110,10 @@ footer {
   align-items: center;
   font-size: 14px;
 }
+.collapsed {
+  display: none; /* Hiding Elements */
+  height: 0; 
+  width: 0;
+  opacity: 0;
+  position: absolute; 
+}
