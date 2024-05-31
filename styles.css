@@ -61,7 +61,10 @@ header li {
 }
 
 @media (max-width: 600px) {
-   /* Defines styles for the toggle-menu class */
+  header h1 {
+    display: none; 
+    
+  /* Defines styles for the toggle-menu class */
   .toggle-menu {
     list-style: none;
     padding: 0;
