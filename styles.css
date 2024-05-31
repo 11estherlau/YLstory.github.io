@@ -84,7 +84,7 @@ header li {
 }
 
 main {
-  padding: 77.7px;
+  padding: 20px;
 }
 
 h2 {
@@ -94,6 +94,7 @@ h2 {
 
 section {
   margin-bottom: 20px;
+  padding: 20px
 }
 
 p {
