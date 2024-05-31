@@ -145,6 +145,7 @@ nav ul li {
   padding: 4px 12px;
   text-decoration: none;
   display: block;
+  margin-bottom: 4px; /* Adjust the margin value as per your preference */
 }
 
 .dropdown:hover .dropdown-content {
