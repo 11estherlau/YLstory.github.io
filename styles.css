@@ -80,7 +80,7 @@ header li {
     height: 20px;
     background-color: White;
     cursor: pointer;
-    align-items: right;
+    text-align: right;
   }
 }
 
