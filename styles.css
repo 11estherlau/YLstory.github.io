@@ -80,7 +80,7 @@ header li {
     height: 20px;
     background-color: White;
     cursor: pointer;
-    text-align: right;
+    position: relative;
   }
 
   .toggle-icon::before,
