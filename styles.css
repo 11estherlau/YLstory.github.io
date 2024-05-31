@@ -65,6 +65,22 @@ header li {
   nav ul {
     display: none;
   }
+
+  /* Defines styles for the toggle-menu class */
+  .toggle-menu {
+  display: none; /* Hide menu by default */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Defines the style of the toggle-icon class */
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  cursor: pointer;
+}
 }
 
 main {
@@ -96,11 +112,4 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 14px;
-}
-.collapsed {
-  display: none; /* Hiding Elements */
-  height: 0; 
-  width: 0;
-  opacity: 0;
-  position: absolute; 
 }
