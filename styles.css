@@ -57,26 +57,13 @@ header li {
 /* ... */
 
 /* Style for the three dots */
-@media (max-width: 700px) {
-  .toggle-nav {
+@media (max-width: 600px) {
+  .toggle-icon {
     display: block;
   }
-
+  
   nav ul {
     display: none;
-  }
-
-  nav ul li a.collapsed {
-    display: none;
-  }
-
-  .toggle-nav {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 24px;
   }
 }
 
