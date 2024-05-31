@@ -58,14 +58,6 @@ header li {
 
 /* Style for the three dots */
 @media (max-width: 600px) {
-  .toggle-icon {
-    display: block;
-  }
-  
-  nav ul {
-    display: none;
-  }
-
   /* Defines styles for the toggle-menu class */
   .toggle-menu {
     display: none; /* Hide menu by default */
