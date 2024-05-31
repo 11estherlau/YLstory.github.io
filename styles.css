@@ -82,6 +82,23 @@ header li {
     cursor: pointer;
     text-align: right;
   }
+
+  .toggle-icon::before,
+  .toggle-icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+  }
+
+  .toggle-icon::before {
+    top: 4px;
+  }
+
+  .toggle-icon::after {
+    bottom: 4px;
+  }
 }
 
 main {
