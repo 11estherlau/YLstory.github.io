@@ -71,6 +71,8 @@ header li {
     cursor: pointer;
     margin-left: auto; /* Set the space on the left to auto and push the icons to the right */
     position: relative;
+    font-size: 20px;
+    line-height: 20px;
   }
 
   .toggle-icon::before,
