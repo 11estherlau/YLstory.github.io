@@ -67,7 +67,7 @@ header li {
   .toggle-icon {
     width: 20px;
     height: 20px;
-    background-color: black;
+    background-color: #fff;
     cursor: pointer;
     margin-left: auto; /* Set the space on the left to auto and push the icons to the right */
     position: relative;
