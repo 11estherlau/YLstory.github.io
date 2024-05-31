@@ -55,44 +55,11 @@ header li {
 }
 
 /* Style for the three dots */
-@media (min-width: 601px) {
-  .toggle-icon {
-    display: none;
-  }
-}
-
 @media (max-width: 600px) {
   header h1 {
     display: none; 
-    
-  /* Defines styles for the toggle-menu class */
-  .toggle-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
   }
-
-  /* Defines the style of the toggle-icon class */
-  .toggle-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin-left: auto; /* Set the space on the left to auto and push the icons to the right */
-    position: relative;
-    font-size: 20px;
-    line-height: 20px;
-  }
-
-  .toggle-icon::before,
-  .toggle-icon::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: black;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+}
 
   .toggle-icon::before {
     left: 0;
