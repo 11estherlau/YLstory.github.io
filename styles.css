@@ -87,7 +87,6 @@ header li {
 
   .toggle-icon::before {
     top: 4px
-    right: 4px
   }
 
   .toggle-icon::after {
