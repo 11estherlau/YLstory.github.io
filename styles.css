@@ -75,7 +75,7 @@ header li {
 
   .toggle-icon::before,
   .toggle-icon::after {
-    content: """;
+    content: "";
     position: absolute;
     width: 4px;
     height: 4px;
