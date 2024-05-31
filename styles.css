@@ -68,19 +68,20 @@ header li {
 
   /* Defines styles for the toggle-menu class */
   .toggle-menu {
-  display: none; /* Hide menu by default */
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    display: none; /* Hide menu by default */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Defines the style of the toggle-icon class */
-.toggle-icon {
-  width: 20px;
-  height: 20px;
-  background-color: White;
-  cursor: pointer;
-}
+  /* Defines the style of the toggle-icon class */
+  .toggle-icon {
+    width: 20px;
+    height: 20px;
+    background-color: White;
+    cursor: pointer;
+    align-items: right;
+  }
 }
 
 main {
