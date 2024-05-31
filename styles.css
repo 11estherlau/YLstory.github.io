@@ -97,7 +97,7 @@ section {
 }
 
 p {
-  font-size: 24px;
+  font-size: 20px;
   padding: 20px
 }
 
@@ -113,5 +113,5 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 20px;
 }
