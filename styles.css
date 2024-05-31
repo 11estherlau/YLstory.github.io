@@ -53,9 +53,6 @@ header li {
   margin-right: 4vw;
 }
 
-/* Add your custom styles here */
-/* ... */
-
 /* Style for the three dots */
 @media (max-width: 600px) {
   /* Defines styles for the toggle-menu class */
@@ -78,7 +75,7 @@ header li {
 
   .toggle-icon::before,
   .toggle-icon::after {
-    content: "";
+    content: """;
     position: absolute;
     width: 4px;
     height: 4px;
