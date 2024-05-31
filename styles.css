@@ -70,7 +70,7 @@ header li {
   .toggle-icon {
     width: 20px;
     height: 20px;
-    background-color: White;
+    background-color: black;
     cursor: pointer;
     margin-left: auto; /* Set the space on the left to auto and push the icons to the right */
     position: relative;
@@ -82,7 +82,7 @@ header li {
     position: absolute;
     width: 4px;
     height: 4px;
-    background-color: black;
+    background-color: white;
     border-radius: 50%;
   }
 
