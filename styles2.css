@@ -3,10 +3,13 @@
   padding: 0;
 }
 
-header, section, footer {
+header,
+section,
+footer {
   background-color: #f2f2f2;
 }
 
+/* 全局樣式 */
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -14,22 +17,19 @@ body {
   line-height: 1.6;
 }
 
-.fixed-width {
-  width: 500px;
-  /* fixed-width is 500 pixels */
-  margin: 0 auto;
-  /* horizontal centering */
-  padding: 20px;
-  border: 1px solid #ccc;
-  overflow-wrap: break-word;
-  /* Make sure the text does not extend beyond the container */
-}
-
 header {
   background-color: #333;
   color: #fff;
   height: 80px;
   width: 100%;
+}
+
+h1 {
+  position: absolute;
+  left: 120px;
+  top: 0;
+  line-height: 80px;
+  font-size: 24px;
 }
 
 header a {
@@ -50,88 +50,61 @@ header ul {
 
 header li {
   display: inline;
-  margin-right: 10px;
+  margin-right: 4vw;
 }
 
-h1 {
-  position: absolute;
-  left:120px;
-  top: 0;
-  line-height: 80px;
-  font-size: 24px;
+/* Style for the three dots */
+@media (min-width: 601px) {
+  .toggle-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+   /* Defines styles for the toggle-menu class */
+  .toggle-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Defines the style of the toggle-icon class */
+  .toggle-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto; /* Set the space on the left to auto and push the icons to the right */
+    position: relative;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .toggle-icon::before,
+  .toggle-icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .toggle-icon::before {
+    left: 0;
+  }
+
+  .toggle-icon::after {
+    right: 0;
+  }
 }
 
 main {
   padding: 77.7px;
 }
 
-.button{
-  margin: 0;
-  padding: 10px;
-  margin-bottom: 30px;
-  box-sizing: content-box;
-  box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
-  border-radius: 6px;
-  color: #333;
-  text-decoration: none;
-  justify-content: space-between;
-}
-
-.dropbtn {
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin: 50px;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 5px 5px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  line-height: 30px;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-@media (max-width: 600px) {
-header {
-  padding: 8px;
-  margin: 0 5px;
-  }
-}
-
-@media (max-width: 400px) {
-header {
-  padding: 5px;
-  margin: 0 2px;
-  }
-}
-
 h2 {
   text-align: left;
-  margin-top: 30px;
 }
 
 section {
