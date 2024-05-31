@@ -93,3 +93,22 @@ footer {
   align-items: center;
   font-size: 14px;
 }
+
+.button {
+  margin: 0;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-sizing: content-box;
+  box-shadow: 4px 4px 10px rgba(2, 2, 2, 0.582);
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.button:hover {
+  background-color: #f0fff0;
+  box-shadow: 0 5px;
+  transition: 0.5s;
+}
