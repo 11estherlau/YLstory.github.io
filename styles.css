@@ -51,6 +51,7 @@ header ul {
 header li {
   display: inline;
   margin-right: 4vw;
+  font-size: 12px;
 }
 
 /* Style for the three dots */
