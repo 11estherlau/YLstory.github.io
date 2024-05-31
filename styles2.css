@@ -119,6 +119,13 @@ nav ul li {
 }
 
 /* Style the dropdown */
+.dropbtn {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px; /* Adjust the padding to move the button inward */
+  margin-right: 8px; /* Adjust the margin to move the button inward */
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
