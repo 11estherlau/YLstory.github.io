@@ -55,12 +55,6 @@ header li {
 
 /* Style for the three dots */
 @media (max-width: 600px) {
-  header a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 34px
-  }
-  
   h1 {
     position: absolute;
     left: 120px;
@@ -71,6 +65,14 @@ header li {
 
   p {
     font-size: 12px;
+  }
+
+  .dropbtn {
+    color: white;
+    text-decoration: none;
+    padding: 12px 22px; 
+    margin-right: 20px;
+    font-size: 24px
   }
 }
 
