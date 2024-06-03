@@ -33,6 +33,27 @@ h1 {
   .navbar {
     display: block;
   }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: white;
+  }
+
+  .navbar-light .navbar-toggler {
+    color: white;
+    border-color: white;
+  }
+
+  .bg-dark {
+    background-color: black;
+  }
+
+  .navbar-brand {
+    color: white;
+  }
+
+  .navbar-brand span {
+    color: white;
+  }
 }
 
 main {
