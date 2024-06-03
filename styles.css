@@ -17,88 +17,38 @@ body {
   line-height: 1.6;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  height: 80px;
-  width: 100%;
-}
-
 h1 {
   position: absolute;
   left: 120px;
   top: 0;
   line-height: 80px;
-  font-size: 34px;
+  font-size: 24px;
 }
 
-header a {
-  color: #fff;
-  text-decoration: none;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-header ul {
-  position: absolute;
-  right: 1vw;
-  top: 0;
-  line-height: 80px;
-}
-
-header li {
-  display: inline;
-  margin-right: 4vw;
-  font-size: 12px;
-}
+/* Add your custom styles here */
+/* ... */
 
 /* Style for the three dots */
 @media (max-width: 600px) {
-  header h1 {
-    display: none; 
-  }
-  
-  h1 {
-    position: absolute;
-    left: 120px;
-    top: 0;
-    line-height: 80px;
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 12px;
-  }
-
-}
-
-  .toggle-icon::before {
-    left: 0;
-  }
-
-  .toggle-icon::after {
-    right: 0;
+  .navbar {
+    display: block;
   }
 }
 
 main {
-  padding: 20px;
+  padding: 77.7px;
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
 }
 
 section {
   margin-bottom: 20px;
-  padding: 20px
 }
 
 p {
-  font-size: 20px;
-  padding: 20px
+  font-size: 12px;
 }
 
 ul {
@@ -113,5 +63,26 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 14px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-toggler {
+  color: white;
+  border-color: white;
+}
+
+.bg-dark {
+  background-color: black;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand span {
+  color: white;
 }
