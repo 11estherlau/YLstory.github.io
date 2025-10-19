@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YL小說網 - 法律條款</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 法律條款頁面專用樣式 */
+        .legal-page {
+            padding: 40px 0;
+            background-color: #f5f7fa;
+            min-height: calc(100vh - 150px);
+        }
+
+        .legal-header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .legal-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-title i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .legal-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .legal-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f9fafc;
+        }
+
+        .legal-tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .legal-tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            background-color: white;
+        }
+
+        .legal-content {
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .legal-section {
+            display: none;
+        }
+
+        .legal-section.active {
+            display: block;
+        }
+
+        .legal-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .legal-section h3 {
+            color: var(--dark-color);
+            margin: 25px 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .legal-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .legal-section ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .legal-section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .legal-section .highlight {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .legal-section .update-date {
+            text-align: right;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .legal-tabs {
+                flex-direction: column;
+            }
+
+            .legal-content {
+                padding: 20px;
+                max-height: none;
+                overflow-y: visible;
+            }
+
+            .legal-section h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 共用頂部導航欄 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.jpeg" alt="YL小說網" class="logo-img"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首頁</a></li>
+                    <li><a href="novels.html"><i class="fas fa-book"></i> 小說</a></li>
+                    <li><a href="comics.html"><i class="fas fa-images"></i> 漫畫</a></li>
+                    <li><a href="collections.html"><i class="fas fa-heart"></i> 我的收藏</a></li>
+                    <li><a href="mobile.html"><i class="fas fa-mobile-alt"></i> 手機版</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="language-switcher">
+                    <span class="current-lang">繁體版</span>
+                    <ul class="lang-options">
+                        <li><a href="#" data-lang="zh-CN">简体版</a></li>
+                        <li><a href="#" data-lang="zh-TW">繁體版</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 法律條款頁面主內容 -->
+    <main class="legal-page">
+        <div class="container">
+            <div class="legal-header">
+                <div class="container">
+                    <h1 class="page-title"><i class="fas fa-gavel"></i> 法律條款</h1>
+                </div>
+            </div>
+
+            <div class="legal-container">
+                <div class="legal-tabs">
+                    <div class="legal-tab active" data-tab="terms">版權聲明</div>
+                </div>
+
+                <div class="legal-content">
+                    <!-- 版權聲明 -->
+                    <div class="legal-section" id="copyright">
+                        <h2>YL小說網版權聲明</h2>
+
+                        <div class="highlight">
+                            <p>本網站尊重知識產權，並致力於保護作者和版權持有人的合法權益。</p>
+                        </div>
+
+                        <h3>1. 版權所有</h3>
+                        <p>YL小說網及其內容、功能和外觀（包括但不限於所有信息、軟體、文本、顯示、圖像、視頻和音頻以及其設計、選擇和安排）均受國際版權、商標、專利、商業秘密和其他知識產權法保護。</p>
+
+                        <h3>2. 內容所有權</h3>
+                        <p>本網站上展示的所有小說、漫畫、圖像、文字、圖形、標誌、按鈕圖標、圖像、音頻剪輯、數字下載、數據編譯和軟體是YL小說網或其內容供應商的財產，受國際版權法保護。</p>
+
+                        <h3>3. 版權侵權通知</h3>
+                        <p>如果您是版權持有人或有權代表版權持有人行事，並認為您受版權保護的作品在本網站上被複製或以其他方式侵犯，請向我們的版權代理人提供包含以下信息的書面通知：</p>
+                        <ul>
+                            <li>被授權代表聲稱侵權的專有權所有者行事的人的物理或電子簽名</li>
+                            <li>聲稱被侵權的受版權保護作品的標識</li>
+                            <li>聲稱侵權材料在本網站上的位置的標識</li>
+                            <li>您的地址、電話號碼和電子郵件地址</li>
+                            <li>您聲稱該有爭議的使用未經版權所有者、其代理人或法律授權的陳述</li>
+                            <li>在偽證罪的處罰下，您的通知中的信息準確無誤，並且您是版權所有者或有權代表版權所有者行事的陳述</li>
+                        </ul>
+                        <p>請將侵權通知發送至：copyright@starlight-novel.com</p>
+
+                        <h3>4. 授權使用</h3>
+                        <p>在遵守這些條款的前提下，我們授予您有限的、非獨家的、不可轉讓的、可撤銷的許可，僅為您個人和非商業目的訪問和使用本網站。您不得：</p>
+                        <ul>
+                            <li>複製、修改或創建本網站或其任何部分的衍生作品</li>
+                            <li>使用本網站或其任何內容進行任何商業目的</li>
+                            <li>嘗試解構或逆向工程本網站上包含的任何軟體</li>
+                            <li>刪除本網站上任何內容中的任何版權或其他專有權利通知</li>
+                            <li>將本網站或其任何部分轉讓或傳輸給他人</li>
+                        </ul>
+
+                        <h3>5. 商標</h3>
+                        <p>YL小說網的名稱和標誌是我們的商標。未經我們事先書面許可，您不得使用這些標記。</p>
+
+                        <h3>6. 第三方內容</h3>
+                        <p>本網站可能包含指向第三方網站或服務的鏈接，這些網站或服務不受我們控制。我們不對任何第三方網站或服務的內容、隱私政策或做法負責，也不承擔任何責任。</p>
+
+                        <h3>7. 版權政策執行</h3>
+                        <p>我們將對重複侵權者採取適當措施。在適當情況下，我們將終結重複侵權者的帳戶。</p>
+
+                        <div class="update-date">最後更新日期：2023年10月15日</div>
+                    </div>
+                </div>
+
+                <!-- 共用頁腳 -->
+                <footer class="footer">
+                    <div class="container">
+                        <div class="footer-links">
+                            <div class="footer-column">
+                                <h3>關於我們</h3>
+                                <ul>
+                                    <li><a href="#">關於YL</a></li>
+                                    <li><a href="#">聯繫我們</a></li>
+                                    <li><a href="#">加入我們</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-column">
+                                <h3>關注我們</h3>
+                                <div class="social-links">
+                                    <a href="https://www.instagram.com/yuanling_1111/"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                                <div class="newsletter">
+                                    <p>訂閱電子報獲取最新資訊</p>
+                                    <form>
+                                        <input type="email" placeholder="您的電子郵件">
+                                        <button type="submit">訂閱</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <p>&copy; 2025 YL小說網 版權所有</p>
+                        </div>
+                    </div>
+                </footer>
+
+                <script>
+                    // 標籤頁切換功能
+                    document.querySelectorAll('.legal-tab').forEach(tab => {
+                        tab.addEventListener('click', function () {
+                            // 移除所有標籤和內容的active類
+                            document.querySelectorAll('.legal-tab').forEach(t => {
+                                t.classList.remove('active');
+                            });
+                            document.querySelectorAll('.legal-section').forEach(section => {
+                                section.classList.remove('active');
+                            });
+
+                            // 添加當前標籤和對應內容的active類
+                            this.classList.add('active');
+                            const tabId = this.getAttribute('data-tab');
+                            document.getElementById(tabId).classList.add('active');
+
+                            // 滾動到頂部
+                            document.querySelector('.legal-content').scrollTop = 0;
+                        });
+                    });
+
+                    // 從URL錨點加載特定標籤
+                    window.addEventListener('load', function () {
+                        const hash = window.location.hash.substring(1);
+                        if (hash && ['terms', 'privacy', 'copyright'].includes(hash)) {
+                            document.querySelectorAll('.legal-tab').forEach(tab => {
+                                tab.classList.remove('active');
+                            });
+                            document.querySelectorAll('.legal-section').forEach(section => {
+                                section.classList.remove('active');
+                            });
+
+                            document.querySelector(`.legal-tab[data-tab="${hash}"]`).classList.add('active');
+                            document.getElementById(hash).classList.add('active');
+                        }
+                    });
+                </script>
+</body>
+
+</html>
