@@ -91,5 +91,3 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach(item => container.appendChild(item));
     }
 });
-
-// comics.js 內容與 novels.js 類似，只是選擇器改為漫畫相關的

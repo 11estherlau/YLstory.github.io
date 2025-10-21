@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《穿書成了下面那個》第1章 - YL小說網</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4a6baf;
+            --secondary-color: #f8b500;
+            --dark-color: #2c3e50;
+            --light-color: #f5f7fa;
+            --text-color: #333;
+            --text-light: #777;
+            --border-color: #e1e4e8;
+            --bg-color: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.night-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 頂部導航 */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin: 0 10px;
+        }
+
+        .main-nav a {
+            padding: 8px 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .main-nav a i {
+            margin-right: 5px;
+        }
+
+        .main-nav li.active a {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-switcher {
+            position: relative;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .current-lang {
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .lang-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            width: 100px;
+            display: none;
+        }
+
+        .lang-options li {
+            padding: 8px 10px;
+        }
+
+        .lang-options li:hover {
+            background-color: var(--light-color);
+        }
+
+        .language-switcher:hover .lang-options {
+            display: block;
+        }
+
+        /* 閱讀頁面主內容 */
+        .reading-page {
+            padding: 20px 0;
+        }
+
+        .novel-header {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .novel-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .novel-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .novel-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .novel-meta i {
+            margin-right: 5px;
+        }
+
+        .novel-tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 4px 8px;
+            background-color: var(--light-color);
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .tag.bl {
+            background-color: #8e44ad;
+            color: white;
+        }
+
+        .reading-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* 章節列表 */
+        .chapter-sidebar {
+            width: 250px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .chapter-sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chapter-sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .chapter-search {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chapter-search input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .chapter-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .chapter-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chapter-item:hover {
+            background-color: var(--light-color);
+        }
+
+        .chapter-item.active {
+            background-color: rgba(74, 107, 175, 0.1);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .chapter-item .chapter-title {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .chapter-item .chapter-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* 閱讀區域 */
+        .reading-content {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .reading-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .current-chapter {
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .reading-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .reading-action {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reading-action:hover {
+            background-color: #e8ecf1;
+        }
+
+        .reading-body {
+            padding: 30px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            min-height: 400px;
+        }
+
+        .reading-body p {
+            margin-bottom: 1.5em;
+            text-indent: 2em;
+        }
+
+        .reading-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chapter-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .btn-prev {
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+
+        .btn-next {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .reading-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .progress-bar {
+            width: 150px;
+            height: 6px;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 65%;
+        }
+
+        /* 閱讀設置面板 */
+        .reading-settings {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 200px;
+            display: none;
+            z-index: 100;
+        }
+
+        .reading-settings.active {
+            display: block;
+        }
+
+        .settings-title {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .settings-group {
+            margin-bottom: 15px;
+        }
+
+        .settings-label {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .font-size-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .font-size-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-color);
+            cursor: pointer;
+        }
+
+        .font-size-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .font-family-select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .bg-color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bg-color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .bg-color-option.active {
+            border-color: var(--primary-color);
+        }
+
+        .bg-color-option.light {
+            background-color: #f9f9f9;
+        }
+
+        .bg-color-option.sepia {
+            background-color: #f4ecd8;
+        }
+
+        .bg-color-option.dark {
+            background-color: #1a1a1a;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 992px) {
+            .reading-container {
+                flex-direction: column;
+            }
+
+            .chapter-sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .chapter-list {
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .main-nav {
+                margin-bottom: 15px;
+            }
+
+            .reading-body {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .reading-footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .reading-progress {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* 夜間模式樣式 */
+        body.night-mode .header,
+        body.night-mode .novel-header,
+        body.night-mode .chapter-sidebar,
+        body.night-mode .reading-content,
+        body.night-mode .reading-settings {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        body.night-mode .main-nav a,
+        body.night-mode .novel-title,
+        body.night-mode .current-chapter {
+            color: #e0e0e0;
+        }
+
+        body.night-mode .novel-meta,
+        body.night-mode .chapter-item .chapter-date,
+        body.night-mode .progress-text {
+            color: #a0a0a0;
+        }
+
+        body.night-mode .border-color,
+        body.night-mode .chapter-search input,
+        body.night-mode .font-family-select {
+            border-color: #444;
+        }
+
+        body.night-mode .chapter-item:hover {
+            background-color: #3a3a3a;
+        }
+
+        body.night-mode .reading-action,
+        body.night-mode .btn-prev {
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 頂部導航欄 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.jpeg" alt="YL小說網"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首頁</a></li>
+                    <li><a href="novels.html"><i class="fas fa-book"></i> 小說</a></li>
+                    <li><a href="comics.html"><i class="fas fa-images"></i> 漫畫</a></li>
+                    <li><a href="collections.html"><i class="fas fa-heart"></i> 我的收藏</a></li>
+                    <li><a href="mobile.html"><i class="fas fa-mobile-alt"></i> 手機版</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <div class="language-switcher">
+                    <span class="current-lang">繁體版</span>
+                    <ul class="lang-options">
+                        <li><a href="#" data-lang="zh-CN">简体版</a></li>
+                        <li><a href="#" data-lang="en">English</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 閱讀頁面主內容 -->
+    <main class="reading-page">
+        <div class="container">
+            <!-- 小說信息頭部 -->
+            <div class="novel-header">
+                <h1 class="novel-title">《魔尊的美人師尊》</h1>
+                <div class="novel-meta">
+                    <span><i class="fas fa-user"></i> 作者：淵翎</span>
+                    <span><i class="fas fa-tag"></i> 分類：BL小說</span>
+                </div>
+                <div class="novel-tags">
+                    <span class="tag bl">BL</span>
+                    <span class="tag">高虐</span>
+                    <span class="tag">甜寵</span>
+                    <span class="tag">師徒</span>
+                    <span class="tag">連載中</span>
+                </div>
+            </div>
+
+            <div class="reading-container">
+                <!-- 章節列表側邊欄 -->
+                <div class="chapter-sidebar">
+                    <div class="chapter-sidebar-header">
+                        <h3 class="chapter-sidebar-title">章節列表</h3>
+                        <span>共2章</span>
+                    </div>
+                    <div class="chapter-search">
+                        <input type="text" placeholder="搜尋章節...">
+                    </div>
+                    <div class="chapter-list">
+                        <!-- 章節項目 -->
+                        <div class="chapter-item active" data-chapter-id="1">
+                            <div class="chapter-title">第1章 過往的自己</div>
+                            <div class="chapter-date">2023-06-01</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 閱讀內容區域 -->
+                <div class="reading-content">
+                    <div class="reading-header">
+                        <h2 class="current-chapter">第1章 過往的自己</h2>
+                        <div class="reading-actions">
+                            <div class="reading-action" id="bookmarkBtn">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                            <div class="reading-action" id="settingsBtn">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="reading-action" id="nightModeBtn">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 這裡是顯示文章內容的區域 -->
+                    <div class="reading-body" id="readingBody">
+                    </div>
+
+                    <!-- 這裡是頁尾 -->
+                    <div class="reading-footer">
+                        <div class="chapter-nav">
+                            <button class="btn btn-prev"><i class="fas fa-chevron-left"></i> 上一章</button>
+                            <button class="btn btn-next">下一章 <i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="reading-progress">
+                            <span class="progress-text" id="progressText">100%</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 閱讀設置面板 -->
+    <div class="reading-settings" id="readingSettings">
+        <h3 class="settings-title">閱讀設置</h3>
+
+        <div class="settings-group">
+            <label class="settings-label">字體大小</label>
+            <div class="font-size-controls">
+                <div class="font-size-btn" data-size="small">小</div>
+                <div class="font-size-btn active" data-size="medium">中</div>
+                <div class="font-size-btn" data-size="large">大</div>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <label class="settings-label">字體</label>
+            <select class="font-family-select" id="fontFamily">
+                <option value="default">預設字體</option>
+                <option value="serif">襯線字體</option>
+                <option value="sans-serif">無襯線字體</option>
+                <option value="monospace">等寬字體</option>
+            </select>
+        </div>
+
+        <div class="settings-group">
+            <label class="settings-label">背景顏色</label>
+            <div class="bg-color-options">
+                <div class="bg-color-option light active" data-bg="light"></div>
+                <div class="bg-color-option sepia" data-bg="sepia"></div>
+                <div class="bg-color-option dark" data-bg="dark"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 定義變量
+        const settingsBtn = document.getElementById('settingsBtn');
+        const readingSettings = document.getElementById('readingSettings');
+        const nightModeBtn = document.getElementById('nightModeBtn');
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const readingBody = document.getElementById('readingBody');
+        const fontFamilySelect = document.getElementById('fontFamily');
+        const progressText = document.getElementById('progressText');
+        const progressFill = document.getElementById('progressFill');
+
+        // 章節內容直接嵌入
+        const chapterContents = {
+            1: `
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            `,
+            2: `
+                <p></p>
+            `
+        };
+
+        // 切換設置面板
+        settingsBtn.addEventListener('click', function () {
+            readingSettings.classList.toggle('active');
+        });
+
+        // 夜間模式
+        nightModeBtn.addEventListener('click', function () {
+            document.body.classList.toggle('night-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('night-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // 書籤功能
+        bookmarkBtn.addEventListener('click', function () {
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bookmark')) {
+                icon.classList.remove('fa-bookmark');
+                icon.classList.add('fa-bookmark');
+                alert('已加入書籤！');
+            } else {
+                icon.classList.remove('fa-bookmark');
+                icon.classList.add('fa-bookmark');
+                alert('已移除書籤！');
+            }
+        });
+
+        // 字體大小控制
+        document.querySelectorAll('.font-size-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.font-size-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                const size = this.getAttribute('data-size');
+                if (size === 'small') {
+                    readingBody.style.fontSize = '0.9rem';
+                } else if (size === 'medium') {
+                    readingBody.style.fontSize = '1.1rem';
+                } else if (size === 'large') {
+                    readingBody.style.fontSize = '1.3rem';
+                }
+            });
+        });
+
+        // 字體選擇
+        fontFamilySelect.addEventListener('change', function () {
+            const font = this.value;
+            if (font === 'default') {
+                readingBody.style.fontFamily = "'Noto Sans TC', 'Microsoft JhengHei', sans-serif";
+            } else if (font === 'serif') {
+                readingBody.style.fontFamily = "'Noto Serif TC', serif";
+            } else if (font === 'sans-serif') {
+                readingBody.style.fontFamily = "'Noto Sans TC', sans-serif";
+            } else if (font === 'monospace') {
+                readingBody.style.fontFamily = "'Courier New', monospace";
+            }
+        });
+
+        // 背景顏色選擇
+        document.querySelectorAll('.bg-color-option').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.bg-color-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                const bg = this.getAttribute('data-bg');
+                document.body.className = '';
+                if (bg === 'sepia') {
+                    document.body.style.backgroundColor = '#f4ecd8';
+                    document.body.style.color = '#5c4b37';
+                } else if (bg === 'dark') {
+                    document.body.classList.add('night-mode');
+                    nightModeBtn.querySelector('i').classList.remove('fa-moon');
+                    nightModeBtn.querySelector('i').classList.add('fa-sun');
+                } else {
+                    document.body.style.backgroundColor = '';
+                    document.body.style.color = '';
+                }
+            });
+        });
+
+        // 章節導航
+        document.querySelector('.btn-prev').addEventListener('click', function () {
+            alert('正在加載上一章...');
+        });
+
+        document.querySelector('.btn-next').addEventListener('click', function () {
+            alert('正在加載下一章...');
+        });
+
+        // 章節列表點擊
+        document.querySelectorAll('.chapter-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.chapter-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                const chapterTitle = this.querySelector('.chapter-title').textContent;
+                document.querySelector('.current-chapter').textContent = chapterTitle;
+
+                // 更新內容
+                updateChapterContent(this.getAttribute('data-chapter-id'));
+            });
+        });
+
+        // 更新章節內容
+        function updateChapterContent(chapterId) {
+            const content = chapterContents[chapterId];
+            if (content) {
+                readingBody.innerHTML = content;
+                updateProgress(chapterId);
+            } else {
+                readingBody.innerHTML = '<p>章節內容暫未提供。</p>';
+            }
+        }
+
+        // 更新閱讀進度
+        function updateProgress(chapterId) {
+            const totalChapters = Object.keys(chapterContents).length;
+            const progress = (chapterId / totalChapters) * 100;
+            progressText.textContent = `${Math.round(progress)}%`;
+            progressFill.style.width = `${progress}%`;
+        }
+
+        // 初始化加載第一章
+        updateChapterContent(1);
+    </script>
+    </script>
+</body>
+
+</html>
