@@ -683,6 +683,7 @@
                 <div class="bg-color-option light active" data-bg="light"></div>
                 <div class="bg-color-option sepia" data-bg="sepia"></div>
                 <div class="bg-color-option dark" data-bg="dark"></div>
+                <div class="bg-color-option green" data-bg="green"></div>
             </div>
         </div>
     </div>
@@ -868,6 +869,9 @@
                     document.body.classList.add('night-mode');
                     nightModeBtn.querySelector('i').classList.remove('fa-moon');
                     nightModeBtn.querySelector('i').classList.add('fa-sun');
+                } else if (bg === 'green') {
+                    document.body.style.backgroundColor = '#e8f5e9';
+                    document.body.style.color = '#2e7d32';
                 } else {
                     document.body.style.backgroundColor = '';
                     document.body.style.color = '';
@@ -927,6 +931,7 @@
 
 
 </html>
+
 
 
 
