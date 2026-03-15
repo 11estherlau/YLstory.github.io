@@ -684,6 +684,7 @@
                 <div class="bg-color-option light active" data-bg="light"></div>
                 <div class="bg-color-option sepia" data-bg="sepia"></div>
                 <div class="bg-color-option dark" data-bg="dark"></div>
+                <div class="bg-color-option green" data-bg="green"></div>
             </div>
         </div>
     </div>
@@ -702,9 +703,9 @@
         // 章節內容直接嵌入
         const chapterContents = {
             1: `
-                <p>青雲山被層層疊疊的綠意包裹，雲霧繚繞山間，偶有靈鳥掠過，鳴聲清脆，襯得整座仙山越發清幽。</p>
-                <p>山腳下的林間小道上，一道白衣身影緩緩前行，衣袂被微風拂動，翩躚如蝶，周身散發著淡淡的清輝，仿佛與這山間的雲霧融為一體，不食人間煙火。</p>
-                <p>蘇清寒停下腳步，指尖輕輕拂過一片沾著晨露的竹葉，清冷的眉眼間，掠過一絲極淡的倦意。此次下山歷練本是為了尋找一株靈藥，卻一無所獲，反倒被這山間的瘴氣擾了心神。</p>
+                <p>殘冬臘月，寒風像淬了冰的刀子，刮在臉上生疼，洛城那破敗不堪的衣服和褲子上還殘留著地上的雪沫子，凍得他四肢僵硬，幾乎失去知覺。</p>
+                <p>他幼小的身軀踡縮在城墻根下的破草堆裡，衣服上全是破洞，漏出的皮膚凍得發青，還有幾道新添的血痕，那時剛才被人毆打留下的。他們搶走了洛城今天好不容易討到的半塊硬饅頭，連帶踹了他幾腳，甚至罵他是沒爹沒娘的野種。</p>
+                <p>洛城今年才八歲，自記事起，他就一直穿著一身破爛的衣服</p>
                 <p>他微微蹙眉，正欲轉身返回青雲山，卻忽然聽到不遠處的草叢裡，傳來一陣微弱的喘息聲，斷斷續續，像是隨時會斷絕。</p>
                 <p>蘇清寒向來不想多管閒事，他本可以視而不見，可這喘息聲似乎帶著絕望與痛苦，讓他心底最柔軟的地方莫名被牽動——那是一種他無比熟悉的感覺，就像他年少時家族被覆滅後，獨自一人掙扎求生時的模樣一樣。</p>
                 <p>他走到草叢邊撥開了半人高的雜草，映入眼簾的是一個渾身是傷的小孩。</p>
@@ -804,6 +805,9 @@
                     document.body.classList.add('night-mode');
                     nightModeBtn.querySelector('i').classList.remove('fa-moon');
                     nightModeBtn.querySelector('i').classList.add('fa-sun');
+                }else if (bg === 'green') {
+                    document.body.style.backgroudColor = '#e6f3e6';
+                    document.body.style.color = '#2d4a2e'
                 } else {
                     document.body.style.backgroundColor = '';
                     document.body.style.color = '';
