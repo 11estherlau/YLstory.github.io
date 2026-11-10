@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《魔尊的美人師尊》第1章 - YL小說網</title>
+    <title>《魔尊的美人師尊》- YL小說網</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -116,6 +116,7 @@
             border-radius: 4px;
             width: 100px;
             display: none;
+            list-style: none;
         }
 
         .lang-options li {
@@ -333,6 +334,11 @@
             align-items: center;
         }
 
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .btn i {
             margin-right: 5px;
         }
@@ -369,7 +375,8 @@
         .progress-fill {
             height: 100%;
             background-color: var(--primary-color);
-            width: 65%;
+            width: 0%;
+            transition: width 0.3s;
         }
 
         /* 閱讀設置面板 */
@@ -381,7 +388,7 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 15px;
-            width: 200px;
+            width: 220px;
             display: none;
             z-index: 100;
         }
@@ -464,6 +471,9 @@
         .bg-color-option.dark {
             background-color: #1a1a1a;
         }
+        .bg-color-option.green {
+            background-color: #e6f3e6;
+        }
 
         /* 響應式設計 */
         @media (max-width: 992px) {
@@ -532,7 +542,6 @@
             color: #a0a0a0;
         }
 
-        body.night-mode .border-color,
         body.night-mode .chapter-search input,
         body.night-mode .font-family-select {
             border-color: #444;
@@ -602,49 +611,45 @@
                 <div class="chapter-sidebar">
                     <div class="chapter-sidebar-header">
                         <h3 class="chapter-sidebar-title">章節列表</h3>
-                        <span>共1章</span>
+                        <span id="totalChapterCount">共0章</span>
                     </div>
                     <div class="chapter-search">
-                        <input type="text" placeholder="搜尋章節...">
+                        <input type="text" id="chapterSearchInput" placeholder="搜尋章節...">
                     </div>
-                    <div class="chapter-list">
-                        <!-- 章節項目 -->
-                        <div class="chapter-item active" data-chapter-id="1">
-                            <div class="chapter-title">第一章 寒澗拾孤</div>
-                            <div class="chapter-date">2023-06-01</div>
-                        </div>
+                    <div class="chapter-list" id="chapterListWrap">
+                        <!-- JS 自動生成章節項目 -->
                     </div>
                 </div>
 
                 <!-- 閱讀內容區域 -->
                 <div class="reading-content">
                     <div class="reading-header">
-                        <h2 class="current-chapter">第一章 寒澗拾孤</h2>
+                        <h2 class="current-chapter" id="currentChapterTitle">第一章 寒澗拾孤</h2>
                         <div class="reading-actions">
-                            <div class="reading-action" id="bookmarkBtn">
-                                <i class="fas fa-bookmark"></i>
+                            <div class="reading-action" id="bookmarkBtn" title="加入書籤">
+                                <i class="far fa-bookmark"></i>
                             </div>
-                            <div class="reading-action" id="settingsBtn">
+                            <div class="reading-action" id="settingsBtn" title="閱讀設置">
                                 <i class="fas fa-cog"></i>
                             </div>
-                            <div class="reading-action" id="nightModeBtn">
+                            <div class="reading-action" id="nightModeBtn" title="夜間模式">
                                 <i class="fas fa-moon"></i>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 這裡是顯示文章內容的區域 -->
+                    <!-- 文章內容區域 -->
                     <div class="reading-body" id="readingBody">
                     </div>
 
-                    <!-- 這裡是頁尾 -->
+                    <!-- 頁尾 -->
                     <div class="reading-footer">
                         <div class="chapter-nav">
-                            <button class="btn btn-prev"><i class="fas fa-chevron-left"></i> 上一章</button>
-                            <button class="btn btn-next">下一章 <i class="fas fa-chevron-right"></i></button>
+                            <button class="btn btn-prev" id="prevChapterBtn"><i class="fas fa-chevron-left"></i> 上一章</button>
+                            <button class="btn btn-next" id="nextChapterBtn">下一章 <i class="fas fa-chevron-right"></i></button>
                         </div>
                         <div class="reading-progress">
-                            <span class="progress-text" id="progressText">100%</span>
+                            <span class="progress-text" id="progressText">0%</span>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
@@ -681,31 +686,22 @@
         <div class="settings-group">
             <label class="settings-label">背景顏色</label>
             <div class="bg-color-options">
-                <div class="bg-color-option light active" data-bg="light"></div>
-                <div class="bg-color-option sepia" data-bg="sepia"></div>
-                <div class="bg-color-option dark" data-bg="dark"></div>
-                <div class="bg-color-option green" data-bg="green"></div>
+                <div class="bg-color-option light active" data-bg="light" title="淺色"></div>
+                <div class="bg-color-option sepia" data-bg="sepia" title="護眼棕"></div>
+                <div class="bg-color-option dark" data-bg="dark" title="深色"></div>
+                <div class="bg-color-option green" data-bg="green" title="綠色護眼"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // 定義變量
-        const settingsBtn = document.getElementById('settingsBtn');
-        const readingSettings = document.getElementById('readingSettings');
-        const nightModeBtn = document.getElementById('nightModeBtn');
-        const bookmarkBtn = document.getElementById('bookmarkBtn');
-        const readingBody = document.getElementById('readingBody');
-        const fontFamilySelect = document.getElementById('fontFamily');
-        const progressText = document.getElementById('progressText');
-        const progressFill = document.getElementById('progressFill');
-
-        // 章節內容直接嵌入
-        const chapterContents = {
+        // ========== 章節資料：新增章節直接在這裡加對象即可 ==========
+        const chapterList = [
+            {
                 id: 1,
                 title: "第一章 寒澗拾孤",
                 date: "2023-06-01",
-                content:`
+                content: `
                 <p>泠霜峰的秋天來得比別處早。山下的楓葉才剛染上顏色，峰頂的草就已經枯了大半，風順著山脊往下刮，刮得人耳根發涼。</p>
                 <p>沈清瀾是巳時下山的。他背著一隻舊藥囊，腰間懸劍，劍穗被風吹得貼在腿側。陸知砭前幾日遞了張方子過來，說治寒疾那一味缺了寒澗草，別處的草莖不夠韌，熬出來藥性散得早。祁硯問要不要派兩個弟子去採，被他否了。寒澗那地方石頭滑，長年照不到日頭，年輕弟子下去十個有八個要摔，還不如他自己走一趟。</p>
                 <p>荒澗沒有路。從山腰往下，先是碎石坡，再是亂石灘，最後才到澗底。澗水從上游窄口衝下來，撞在黑的、白的石頭上，碎成一片一片，聲音不是嘩啦嘩啦那種熱鬧，是冷的，像有人拿著小錘在冰面上敲。</p>
@@ -775,11 +771,13 @@
                 <p>那年他被丟在一間空屋裡，屋外下雪，他蜷在牆角，以為熬不過那一夜。謝懷舟推門進來，把他抱走。</p>
                 <p>一隻手托著後頸，一隻手托著膝窩，也是這樣怕碰壞了。</p>
                 <p>他那時候八歲。比這個孩子大兩歲。</p>
-            `,
+                `
+            },
+            {
                 id: 2,
                 title: "第二章 賜名望月",
                 date: "2023-06-02",
-                content:`
+                content: `
                 <p>泠霜軒在泠霜峰的東側，比主殿偏，也比主殿冷。院子裡種著三株老梅，樹幹粗得要兩隻手才抱得住，冬天開花，夏天只剩一身虯結的枝。</p>
                 <p>沈清瀾把孩子放在偏殿的軟榻上。偏殿原本是給臨時來住的客人備的，一年也用不上兩回，被褥都是乾淨的，只是擱久了，有點潮。他先點了暖爐，又去把窗子推開一條縫——屋裡太悶，孩子燒成這樣，悶著不好。</p>
                 <p>侍童小滿跟在後面，一臉不知所措。“師尊，這……這是？”</p>
@@ -859,40 +857,101 @@
                 <p>執事抬眼看了他一眼，那一眼裡什麼都有一點，最後什麼都沒說，落筆寫下：沈望月，年六歲，青雲宗泠霜軒親傳弟子。</p>
                 <p>墨乾了，執事把冊子合上，放回架。沈清瀾看了一眼那一行字。三個字寫在格子裡，很規整，規整得像是早就該在那裡。</p>
                 <p>他忽然想起，這孩子從前連名字都沒有。</p>
-            `,
-              3: `
-                <p></p>
-            `,
-        };
+                `
+            }
+        ];
 
-        // 切換設置面板
-        settingsBtn.addEventListener('click', function () {
+        // ========== DOM 元素 ==========
+        const settingsBtn = document.getElementById('settingsBtn');
+        const readingSettings = document.getElementById('readingSettings');
+        const nightModeBtn = document.getElementById('nightModeBtn');
+        const bookmarkBtn = document.getElementById('bookmarkBtn');
+        const readingBody = document.getElementById('readingBody');
+        const fontFamilySelect = document.getElementById('fontFamily');
+        const progressText = document.getElementById('progressText');
+        const progressFill = document.getElementById('progressFill');
+        const currentChapterTitle = document.getElementById('currentChapterTitle');
+        const chapterListWrap = document.getElementById('chapterListWrap');
+        const totalChapterCount = document.getElementById('totalChapterCount');
+        const prevChapterBtn = document.getElementById('prevChapterBtn');
+        const nextChapterBtn = document.getElementById('nextChapterBtn');
+        const chapterSearchInput = document.getElementById('chapterSearchInput');
+
+        let currentChapterIndex = 0;
+
+        // ========== 渲染章節列表 ==========
+        function renderChapterList(filter = '') {
+            chapterListWrap.innerHTML = '';
+            const filteredChapters = chapterList.filter(ch => 
+                ch.title.toLowerCase().includes(filter.toLowerCase())
+            );
+            filteredChapters.forEach((chapter) => {
+                const originalIndex = chapterList.findIndex(c => c.id === chapter.id);
+                const item = document.createElement('div');
+                item.className = `chapter-item ${originalIndex === currentChapterIndex ? 'active' : ''}`;
+                item.dataset.chapterIndex = originalIndex;
+                item.innerHTML = `
+                    <div class="chapter-title">${chapter.title}</div>
+                    <div class="chapter-date">${chapter.date}</div>
+                `;
+                item.addEventListener('click', () => loadChapter(originalIndex));
+                chapterListWrap.appendChild(item);
+            });
+            totalChapterCount.textContent = `共${chapterList.length}章`;
+        }
+
+        // ========== 加載指定章節 ==========
+        function loadChapter(index) {
+            if (index < 0 || index >= chapterList.length) return;
+            currentChapterIndex = index;
+            const chapter = chapterList[index];
+            
+            // 更新標題
+            currentChapterTitle.textContent = chapter.title;
+            // 更新內容
+            readingBody.innerHTML = chapter.content;
+            // 更新章節列表高亮
+            document.querySelectorAll('.chapter-item').forEach((item, i) => {
+                item.classList.toggle('active', parseInt(item.dataset.chapterIndex) === index);
+            });
+            // 更新進度
+            const progress = Math.round(((index + 1) / chapterList.length) * 100);
+            progressText.textContent = `${progress}%`;
+            progressFill.style.width = `${progress}%`;
+            // 更新上下章按鈕狀態
+            prevChapterBtn.disabled = index === 0;
+            nextChapterBtn.disabled = index === chapterList.length - 1;
+            // 回到頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // 更新頁面標題
+            document.title = `《魔尊的美人師尊》${chapter.title} - YL小說網`;
+        }
+
+        // ========== 事件綁定 ==========
+        // 設置面板切換
+        settingsBtn.addEventListener('click', () => {
             readingSettings.classList.toggle('active');
         });
 
-        // 夜間模式
-        nightModeBtn.addEventListener('click', function () {
+        // 夜間模式切換
+        nightModeBtn.addEventListener('click', () => {
             document.body.classList.toggle('night-mode');
-            const icon = this.querySelector('i');
+            const icon = nightModeBtn.querySelector('i');
             if (document.body.classList.contains('night-mode')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                icon.classList.replace('fa-moon', 'fa-sun');
             } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                icon.classList.replace('fa-sun', 'fa-moon');
             }
         });
 
-        // 書籤功能
-        bookmarkBtn.addEventListener('click', function () {
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bookmark')) {
-                icon.classList.remove('fa-bookmark');
-                icon.classList.add('fa-bookmark');
+        // 書籤切換
+        bookmarkBtn.addEventListener('click', () => {
+            const icon = bookmarkBtn.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.replace('far', 'fas');
                 alert('已加入書籤！');
             } else {
-                icon.classList.remove('fa-bookmark');
-                icon.classList.add('fa-bookmark');
+                icon.classList.replace('fas', 'far');
                 alert('已移除書籤！');
             }
         });
@@ -900,115 +959,62 @@
         // 字體大小控制
         document.querySelectorAll('.font-size-btn').forEach(btn => {
             btn.addEventListener('click', function () {
-                document.querySelectorAll('.font-size-btn').forEach(b => {
-                    b.classList.remove('active');
-                });
+                document.querySelectorAll('.font-size-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
-                const size = this.getAttribute('data-size');
-                if (size === 'small') {
-                    readingBody.style.fontSize = '0.9rem';
-                } else if (size === 'medium') {
-                    readingBody.style.fontSize = '1.1rem';
-                } else if (size === 'large') {
-                    readingBody.style.fontSize = '1.3rem';
-                }
+                const size = this.dataset.size;
+                if (size === 'small') readingBody.style.fontSize = '0.9rem';
+                if (size === 'medium') readingBody.style.fontSize = '1.1rem';
+                if (size === 'large') readingBody.style.fontSize = '1.3rem';
             });
         });
 
         // 字體選擇
         fontFamilySelect.addEventListener('change', function () {
             const font = this.value;
-            if (font === 'default') {
-                readingBody.style.fontFamily = "'Noto Sans TC', 'Microsoft JhengHei', sans-serif";
-            } else if (font === 'serif') {
-                readingBody.style.fontFamily = "'Noto Serif TC', serif";
-            } else if (font === 'sans-serif') {
-                readingBody.style.fontFamily = "'Noto Sans TC', sans-serif";
-            } else if (font === 'monospace') {
-                readingBody.style.fontFamily = "'Courier New', monospace";
-            }
+            if (font === 'default') readingBody.style.fontFamily = "'Noto Sans TC', 'Microsoft JhengHei', sans-serif";
+            if (font === 'serif') readingBody.style.fontFamily = "'Noto Serif TC', serif";
+            if (font === 'sans-serif') readingBody.style.fontFamily = "'Noto Sans TC', sans-serif";
+            if (font === 'monospace') readingBody.style.fontFamily = "'Courier New', monospace";
         });
 
         // 背景顏色選擇
         document.querySelectorAll('.bg-color-option').forEach(option => {
             option.addEventListener('click', function () {
-                document.querySelectorAll('.bg-color-option').forEach(opt => {
-                    opt.classList.remove('active');
-                });
+                document.querySelectorAll('.bg-color-option').forEach(opt => opt.classList.remove('active'));
                 this.classList.add('active');
-
-                const bg = this.getAttribute('data-bg');
+                const bg = this.dataset.bg;
+                // 重置所有樣式
                 document.body.className = '';
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+                nightModeBtn.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+
                 if (bg === 'sepia') {
                     document.body.style.backgroundColor = '#f4ecd8';
                     document.body.style.color = '#5c4b37';
                 } else if (bg === 'dark') {
                     document.body.classList.add('night-mode');
-                    nightModeBtn.querySelector('i').classList.remove('fa-moon');
-                    nightModeBtn.querySelector('i').classList.add('fa-sun');
-                }else if (bg === 'green') {
-                    document.body.style.backgroudColor = '#e6f3e6';
-                    document.body.style.color = '#2d4a2e'
-                } else {
-                    document.body.style.backgroundColor = '';
-                    document.body.style.color = '';
+                    nightModeBtn.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+                } else if (bg === 'green') {
+                    document.body.style.backgroundColor = '#e6f3e6';
+                    document.body.style.color = '#2d4a2e';
                 }
             });
         });
 
-        // 章節導航
-        document.querySelector('.btn-prev').addEventListener('click', function () {
-            alert('正在加載上一章...');
+        // 上下章按鈕
+        prevChapterBtn.addEventListener('click', () => loadChapter(currentChapterIndex - 1));
+        nextChapterBtn.addEventListener('click', () => loadChapter(currentChapterIndex + 1));
+
+        // 章節搜索
+        chapterSearchInput.addEventListener('input', (e) => {
+            renderChapterList(e.target.value.trim());
         });
 
-        document.querySelector('.btn-next').addEventListener('click', function () {
-            alert('正在加載下一章...');
-        });
-
-        // 章節列表點擊
-        document.querySelectorAll('.chapter-item').forEach(item => {
-            item.addEventListener('click', function () {
-                document.querySelectorAll('.chapter-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-                this.classList.add('active');
-
-                const chapterTitle = this.querySelector('.chapter-title').textContent;
-                document.querySelector('.current-chapter').textContent = chapterTitle;
-
-                // 更新內容
-                updateChapterContent(this.getAttribute('data-chapter-id'));
-            });
-        });
-
-        // 更新章節內容
-        function updateChapterContent(chapterId) {
-            const content = chapterContents[chapterId];
-            if (content) {
-                readingBody.innerHTML = content;
-                updateProgress(chapterId);
-            } else {
-                readingBody.innerHTML = '<p>章節內容暫未提供。</p>';
-            }
-        }
-
-        // 更新閱讀進度
-        function updateProgress(chapterId) {
-            const totalChapters = Object.keys(chapterContents).length;
-            const progress = (chapterId / totalChapters) * 100;
-            progressText.textContent = `${Math.round(progress)}%`;
-            progressFill.style.width = `${progress}%`;
-        }
-
-        // 初始化加載第一章
-        updateChapterContent(1);
-    </script>
+        // ========== 初始化 ==========
+        renderChapterList();
+        loadChapter(0);
     </script>
 </body>
 
-
 </html>
-
-
-
